@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Printable Risk Card</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center p-6">
+  <div class="w-full max-w-6xl p-6 bg-white rounded-2xl shadow-xl">
+    <h1 class="text-3xl font-bold mb-6 text-center text-blue-600">Risk Assessment Printable Card</h1>
+
+    <!-- Displaying the values sent from the form -->
+    <div class="space-y-4">
+      <p><strong>Hazard Category:</strong> <span id="hazardCategory"></span></p>
+      <p><strong>Specific Hazard:</strong> <span id="subtopic"></span></p>
+      <p><strong>Reference Number:</strong> <span id="referenceNumber"></span></p>
+      <p><strong>Department:</strong> <span id="department"></span></p>
+      <p><strong>Location:</strong> <span id="location"></span></p>
+      <p><strong>Activity:</strong> <span id="activity"></span></p>
+      <p><strong>Hazard Description:</strong> <span id="hazardDescription"></span></p>
+      <p><strong>Persons at Risk:</strong> <span id="personsAtRisk"></span></p>
+      <p><strong>Existing Control Measures:</strong> <span id="existingControlMeasures"></span></p>
+      <p><strong>Likelihood:</strong> <span id="likelihood"></span></p>
+      <p><strong>Severity:</strong> <span id="severity"></span></p>
+      <p><strong>Risk Rating:</strong> <span id="riskRating"></span></p>
+      <p><strong>Additional Controls:</strong> <span id="furtherControlMeasures"></span></p>
+      <p><strong>Residual Risk Rating:</strong> <span id="residualRiskRating"></span></p>
+      <p><strong>Assessment Status:</strong> <span id="assessmentStatus"></span></p>
+      <p><strong>Approval Status:</strong> <span id="approvalStatus"></span></p>
+      <p><strong>Responsible Person:</strong> <span id="responsiblePerson"></span></p>
+      <p><strong>Assessor Name:</strong> <span id="assessorName"></span></p>
+      <p><strong>Date of Assessment:</strong> <span id="dateOfAssessment"></span></p>
+      <p><strong>Review Date:</strong> <span id="reviewDate"></span></p>
+    </div>
+  </div>
+
+  <script>
+    // Grab URL parameters from the URL query string
+    const params = new URLSearchParams(window.location.search);
+    
+    // List of all input field names that were sent
+    const fields = [
+      "hazardCategory", "subtopic", "referenceNumber", "department", "location", "activity", "hazardDescription", 
+      "personsAtRisk", "existingControlMeasures", "likelihood", "severity", "riskRating", "furtherControlMeasures",
+      "residualRiskRating", "assessmentStatus", "approvalStatus", "responsiblePerson", "assessorName", "dateOfAssessment", "reviewDate"
+    ];
+
+    // Loop over each field and insert its value into the HTML
+    fields.forEach(field => {
+      const value = params.get(field); // Get the value from the URL
+      if (value) document.getElementById(field).textContent = decodeURIComponent(value);
+    });
+  </script>
+</body>
+
+</html>
