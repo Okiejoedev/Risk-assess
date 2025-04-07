@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Risk Assessment Tool</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center p-6">
+  <div class="w-full max-w-6xl p-6 bg-white rounded-2xl shadow-xl">
+    <h1 class="text-3xl font-bold mb-6 text-center text-blue-600">Risk Assessment Landing Page</h1>
+
+    <form action="/printable-card.html" method="GET" class="space-y-4" enctype="multipart/form-data">
+      <!-- Hazard Category Dropdown -->
+      <div>
+        <label for="hazardCategory" class="block font-semibold">Hazard Category</label>
+        <select name="hazardCategory" id="hazardCategory" class="w-full p-2 border rounded">
+          <option value="Workplace Hazards">Workplace Hazards</option>
+          <option value="Transport Hazards">Transport Hazards</option>
+          <option value="Musculoskeletal Hazards">Musculoskeletal Hazards</option>
+          <option value="Work Equipment Hazards">Work Equipment Hazards</option>
+          <option value="Electrical Hazards">Electrical Hazards</option>
+          <option value="Fire Hazards">Fire Hazards</option>
+          <option value="Chemical and Biological Hazards">Chemical and Biological Hazards</option>
+          <option value="Physical and Psychological Hazards">Physical and Psychological Hazards</option>
+        </select>
+      </div>
+
+      <!-- Subtopic Dropdown -->
+      <div>
+        <label for="subtopic" class="block font-semibold">Specific Hazard</label>
+        <select name="subtopic" id="subtopic" class="w-full p-2 border rounded">
+          <option value="Safe Movement of People">Safe Movement of People</option>
+          <option value="Working at Height">Working at Height</option>
+          <option value="Manual Handling">Manual Handling</option>
+          <option value="Fire Prevention">Fire Prevention</option>
+          <option value="Noise and Vibration">Noise and Vibration</option>
+          <option value="Hazardous Substances">Hazardous Substances</option>
+          <option value="Electrical Safety">Electrical Safety</option>
+        </select>
+      </div>
+
+      <!-- Full Risk Assessment Form -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input name="referenceNumber" type="text" placeholder="Reference Number" class="p-2 border rounded w-full" required />
+        <input name="department" type="text" placeholder="Department" class="p-2 border rounded w-full" required />
+        <input name="location" type="text" placeholder="Location" class="p-2 border rounded w-full" required />
+        <input name="activity" type="text" placeholder="Task / Activity Being Assessed" class="p-2 border rounded w-full" required />
+        <input name="hazardDescription" type="text" placeholder="Hazard Description" class="p-2 border rounded w-full" required />
+        <input name="personsAtRisk" type="text" placeholder="Persons at Risk" class="p-2 border rounded w-full" required />
+        <input name="existingControlMeasures" type="text" placeholder="Existing Control Measures" class="p-2 border rounded w-full" required />
+
+        <select name="likelihood" class="p-2 border rounded w-full" required>
+          <option value="">Likelihood (1-5)</option>
+          <option value="1">1 - Rare</option>
+          <option value="2">2 - Unlikely</option>
+          <option value="3">3 - Possible</option>
+          <option value="4">4 - Likely</option>
+          <option value="5">5 - Very Likely</option>
+        </select>
+
+        <select name="severity" class="p-2 border rounded w-full" required>
+          <option value="">Severity (1-5)</option>
+          <option value="1">1 - Insignificant</option>
+          <option value="2">2 - Minor</option>
+          <option value="3">3 - Moderate</option>
+          <option value="4">4 - Major</option>
+          <option value="5">5 - Catastrophic</option>
+        </select>
+
+        <input name="riskRating" type="number" placeholder="Risk Rating (L x S)" class="p-2 border rounded w-full" required />
+        <input name="furtherControlMeasures" type="text" placeholder="Additional Control Measures Required" class="p-2 border rounded w-full" />
+        <input name="residualRiskRating" type="text" placeholder="Residual Risk Rating" class="p-2 border rounded w-full" />
+        <input name="assessmentStatus" type="text" placeholder="Assessment Status (e.g., Pending, Complete)" class="p-2 border rounded w-full" />
+        <input name="approvalStatus" type="text" placeholder="Approval Status" class="p-2 border rounded w-full" />
+        <input name="responsiblePerson" type="text" placeholder="Responsible Person" class="p-2 border rounded w-full" required />
+        <input name="assessorName" type="text" placeholder="Assessor Name" class="p-2 border rounded w-full" required />
+        <input name="dateOfAssessment" type="date" class="p-2 border rounded w-full" required />
+        <input name="reviewDate" type="date" class="p-2 border rounded w-full" required />
+
+        <!-- New Optional File Upload -->
+        <div class="md:col-span-2">
+          <label class="block font-semibold mb-1" for="supportingDocuments">Upload Supporting Documents (optional)</label>
+          <input name="supportingDocuments" id="supportingDocuments" type="file" class="w-full p-2 border rounded" />
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Generate Printable Card</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
